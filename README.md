@@ -69,8 +69,11 @@ The commented out this code section in the dockerfile that starts with this.
 
 ``# Add TensorRT repo``
 
+### 2.1.3 Start http server
+- `python3 -m http.server 8198`
+- Update IP from `10.1.1.41` to your IP in [Dockerfile](x86_64/ubuntu_base_devel/Dockerfile) and [Dockerfile](x86_64/ubuntu_base_runtime/Dockerfile)
 
-### 2.1.3 x86 Build Command
+### 2.1.4 x86 Build Command
 
 ```
 sudo image_url=deepstream:6.3.0-triton-local \
@@ -98,6 +101,15 @@ sudo image_url=deepstream:6.3.0-samples-local \
      ds_pkg=deepstream_sdk_v6.3.0_x86_64.tbz2 \
      ds_pkg_dir=deepstream_sdk_v6.3.0.0_x86_64/ \
      base_image=dgpu-any-custom-base-image make -f Makefile runtime -C x86_64/
+```
+
+### 2.2.3 Instructions for Building x86 DS devel docker image
+
+```
+sudo image_url=deepstream:6.3.0-devel-local \
+     ds_pkg=deepstream_sdk_v6.3.0_x86_64.tbz2 \
+     ds_pkg_dir=deepstream_sdk_v6.3.0.0_x86_64/ \
+     base_image=dgpu-any-custom-base-image make -f Makefile devel -C x86_64/
 ```
 
 
